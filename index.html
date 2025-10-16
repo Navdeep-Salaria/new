@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digital Electricity Meter (Mock kWh)</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- Meter Panel -->
+    <div class="meter">
+      <div class="meter-header">
+        <div>
+          <div class="pill">Mock Digital Meter — kWh Simulator</div>
+          <div class="hint">Replace <code>mockAppliances</code> in script.js to feed your own data</div>
+        </div>
+        <div class="small muted">
+          Tick every <span id="tickMsLabel">1s</span>
+        </div>
+      </div>
+
+      <div class="display">
+        <div>
+          <div class="digital-digits" id="displayPower">0 W</div>
+          <div class="small muted">Current Power (instant)</div>
+        </div>
+
+        <div class="readouts">
+          <div class="readout">
+            <div class="label">Total energy</div>
+            <div class="value big" id="displayKwh">0.000 kWh</div>
+            <div class="small muted">Cumulative</div>
+          </div>
+
+          <div class="readout">
+            <div class="label">Sim Time</div>
+            <div class="value" id="simTime">00:00:00</div>
+            <div class="small muted">hh:mm:ss</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="resetBtn">Reset</button>
+
+        <label for="speedSelect" class="small muted" style="margin-left:8px">Speed</label>
+        <select id="speedSelect" class="speed">
+          <option value="1">1×</option>
+          <option value="10">10×</option>
+          <option value="60">60×</option>
+          <option value="3600">3600×</option>
+        </select>
+
+        <div style="margin-left:auto" class="muted">
+          Total appliances: <span id="applianceCount">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side panel -->
+    <div class="side">
+      <div class="pill">Appliances (mock)</div>
+
+      <div style="margin-top:12px">
+        <label for="newName">Name</label>
+        <input id="newName" type="text" placeholder="e.g. Tube Light" />
+
+        <label for="newWatt" style="margin-top:8px">Wattage (W)</label>
+        <input id="newWatt" type="number" placeholder="e.g. 15" />
+
+        <label for="newCount" style="margin-top:8px">Count</label>
+        <input id="newCount" type="number" value="1" min="1" />
+
+        <div style="margin-top:8px; display:flex; gap:8px;">
+          <button id="addApplianceBtn">Add</button>
+          <button id="loadScenarioBtn">Load Demo</button>
+        </div>
+      </div>
+
+      <div class="list" id="applianceList" style="margin-top:12px">
+        <!-- Appliances will be rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
